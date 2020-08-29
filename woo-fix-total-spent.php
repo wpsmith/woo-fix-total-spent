@@ -1,15 +1,14 @@
 <?php
 /**
- * Plugin Name: WooCommerce Fix Total Spent
- * Plugin URI: https://github.com/wpsmith/woo-fix-total-spent
- * Description: Short-circuits and fixes get_total_spent.
- * Author: Travis Smith
- * Author URI: https://wpsmith.net/
- * Text Domain: woo-fix-total-spent
- * Domain Path: /languages
- * Version: 1.0.0
- * Requires at least: 5.3.0
- * Requires PHP: 5.6.20
+ * Plugin Name:     WooCommerce Fix Total Spent
+ * Plugin URI:      https://github.com/wpsmith/woo-fix-total-spent
+ * Description:     Short-circuits and fixes get_total_spent.
+ * Author:          Travis Smith <t@wpsmith.net>
+ * Author URI:      https://wpsmith.net
+ * Text Domain:     woo-fix-total-spent
+ * Domain Path:     /languages
+ * Version:         0.0.1
+ * Requires PHP:    7.2.20
  *
  * WC requires at least: 4.3.0
  * WC tested up to: 4.3.3
