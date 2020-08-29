@@ -39,8 +39,9 @@ add_filter( 'get_user_metadata', __NAMESPACE__ . '\filter_user_metadata', 10, 3 
  * @return mixed
  */
 function filter_user_metadata( $value, $object_id, $meta_key ) {
+	$filters = apply_filters( 'woo_fix_total_spent_filter_user_metadata', array( '_money_spent', '_order_count' ) );
 	// Check if it's one of the keys we want to filter.
-	if ( in_array( $meta_key, array( '_money_spent', '_order_count' ) ) ) {
+	if ( in_array( $meta_key, $filters ) ) {
 		// Return 0 so WC doesn't try calculate it.
 		return 0;
 	}
