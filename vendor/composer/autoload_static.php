@@ -11,6 +11,11 @@ class ComposerStaticInitfee35d8ae4c71218166f8e13c531173a
         array (
             'WPS\\WP\\Plugins\\WooCommerce\\FixTotalSpent\\' => 41,
             'WPS\\Core\\' => 9,
+            'WPReadme2Markdown\\' => 18,
+        ),
+        'D' => 
+        array (
+            'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 55,
         ),
     );
 
@@ -23,11 +28,14 @@ class ComposerStaticInitfee35d8ae4c71218166f8e13c531173a
         array (
             0 => __DIR__ . '/..' . '/wpsmith/singleton/src',
         ),
-    );
-
-    public static $classMap = array (
-        'WPS\\Core\\Singleton' => __DIR__ . '/..' . '/wpsmith/singleton/src/Singleton.php',
-        'WPS\\WP\\Plugins\\WooCommerce\\FixTotalSpent\\OrderTotal' => __DIR__ . '/../..' . '/includes/OrderTotal.php',
+        'WPReadme2Markdown\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wpreadme2markdown/wpreadme2markdown/src',
+        ),
+        'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
+        ),
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -35,7 +43,6 @@ class ComposerStaticInitfee35d8ae4c71218166f8e13c531173a
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitfee35d8ae4c71218166f8e13c531173a::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitfee35d8ae4c71218166f8e13c531173a::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitfee35d8ae4c71218166f8e13c531173a::$classMap;
 
         }, null, ClassLoader::class);
     }

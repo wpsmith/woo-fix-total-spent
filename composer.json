@@ -1,7 +1,7 @@
 {
   "name": "wpsmith/woo-fix-total-spent",
   "description": "Fixes total spent in WooCommerce.",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "wordpress-plugin",
   "license": "GPLv2+",
   "authors": [
@@ -36,6 +36,7 @@
     "phpcompatibility/php-compatibility": "*",
     "woocommerce/woocommerce-sniffs": "*",
     "wp-coding-standards/wpcs": "*",
-    "automattic/vipwpcs": "*"
+    "automattic/vipwpcs": "*",
+    "wpreadme2markdown/wpreadme2markdown": "dev-master"
   }
 }

@@ -6,6 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'WPS\\Core\\Singleton' => $vendorDir . '/wpsmith/singleton/src/Singleton.php',
-    'WPS\\WP\\Plugins\\WooCommerce\\FixTotalSpent\\OrderTotal' => $baseDir . '/includes/OrderTotal.php',
 );

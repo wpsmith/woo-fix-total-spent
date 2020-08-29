@@ -8,4 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'WPS\\WP\\Plugins\\WooCommerce\\FixTotalSpent\\' => array($baseDir . '/includes'),
     'WPS\\Core\\' => array($vendorDir . '/wpsmith/singleton/src'),
+    'WPReadme2Markdown\\' => array($vendorDir . '/wpreadme2markdown/wpreadme2markdown/src'),
+    'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => array($vendorDir . '/dealerdirect/phpcodesniffer-composer-installer/src'),
 );
