@@ -9,11 +9,8 @@
  * available under the GPL along with build & install instructions.
  *
  * @package    WPS\WP\Plugins\WooCommerce\FixTotalSpent
- * @author     Travis Smith <t@wpsmith.net>
- * @copyright  2015-2020 Travis Smith
- * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License v2
  * @link       https://github.com/wpsmith/setantabooks.com
- * @version    0.1.0
+ * @version    0.0.1
  * @since      0.0.1
  */
 
@@ -31,30 +28,38 @@ use WPS\Core\Singleton;
 class OrderTotal extends Singleton {
 
 	/**
+	 * Table name.
+	 *
+	 * @var string
+	 */
+	protected static $table_name = 'wpswoo_order_totals';
+
+	/**
 	 * OrderTotal constructor.
 	 */
 	function __construct() {
-		add_action( "woocommerce_before_order_object_save", array( $this, 'save_order' ), PHP_INT_MAX, 2 );
+		add_action( "woocommerce_before_order_object_save", array( $this, 'save_order' ), PHP_INT_MAX );
 		add_filter( "woocommerce_customer_get_total_spent_query", array( $this, 'intercept_query' ), PHP_INT_MAX, 2 );
 	}
 
 	/**
 	 * Intercept the get_total_spent SQL query.
 	 *
-	 * @param string $query SQL query.
-	 * @param int    $customer Customer ID.
+	 * @param string       $sql SQL query.
+	 * @param \WC_Customer $customer Customer object.
 	 *
 	 * @return string|void
 	 */
-	public function intercept_query( $query, $customer ) {
+	public function intercept_query( $sql, $customer ) {
 		global $wpdb;
-		$user_id  = $customer->get_id();
-		$statuses = array_map( 'esc_sql', wc_get_is_paid_statuses() );
-		$sql      = "SELECT SUM(order_total) FROM wp_sprout_order_totals
+
+		$user_id    = $customer->get_id();
+		$statuses   = array_map( 'esc_sql', wc_get_is_paid_statuses() );
+		$table_name = OrderTotal::$table_name;
+		$sql        = "SELECT SUM(order_total) FROM {$table_name}
 			WHERE user_id = %d
 			AND order_status IN ( 'wc-" . implode( "','wc-", $statuses ) . "' )";
-		$sql      = $wpdb->prepare( $sql, $user_id );
-		error_log( 'NEW: ' . $sql );
+		$sql        = $wpdb->prepare( $sql, $user_id );
 
 		return $sql;
 	}
@@ -62,10 +67,9 @@ class OrderTotal extends Singleton {
 	/**
 	 * Write the data to custom table.
 	 *
-	 * @param \WC_Data          $instance The object being saved.
-	 * @param \WC_Data_Store_WP $data_store THe data store persisting the data.
+	 * @param \WC_Data $instance The object being saved.
 	 */
-	public function save_order( $instance, $data_store ) {
+	public function save_order( $instance ) {
 		$order_id     = $instance->get_id();
 		$user_id      = $instance->get_user_id();
 		$order_total  = floatval( $instance->get_total() );
@@ -85,8 +89,9 @@ class OrderTotal extends Singleton {
 	public function write_data( $order_id, $user_id, $order_total, $order_status ) {
 		global $wpdb;
 
-		$sql = "
-			INSERT INTO {$wpdb->prefix}wpswoo_order_totals (order_id,user_id,order_total,order_status)
+		$table_name = OrderTotal::$table_name;
+		$sql        = "
+			INSERT INTO {$wpdb->prefix}{$table_name} (order_id,user_id,order_total,order_status)
 			VALUES (%d,%d,%f,%s)
 			ON DUPLICATE KEY UPDATE
 				order_id = VALUES(order_id),
@@ -110,8 +115,9 @@ class OrderTotal extends Singleton {
 			$charset_collate = $wpdb->get_charset_collate();
 
 			// Create the SQL.
-			$sql = "
-			CREATE TABLE {$wpdb->prefix}wpswoo_order_totals (
+			$table_name = OrderTotal::$table_name;
+			$sql        = "
+			CREATE TABLE {$wpdb->prefix}{$table_name} (
 				order_id INTEGER NOT NULL,
 				user_id INTEGER NOT NULL,
 				order_total FLOAT NOT NULL,
