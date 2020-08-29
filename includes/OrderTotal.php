@@ -38,8 +38,8 @@ class OrderTotal extends Singleton {
 	 * OrderTotal constructor.
 	 */
 	function __construct() {
-		add_action( "woocommerce_before_order_object_save", array( $this, 'save_order' ), PHP_INT_MAX );
-		add_filter( "woocommerce_customer_get_total_spent_query", array( $this, 'intercept_query' ), PHP_INT_MAX, 2 );
+		add_action( 'woocommerce_before_order_object_save', array( $this, 'save_order' ), PHP_INT_MAX );
+		add_filter( 'woocommerce_customer_get_total_spent_query', array( $this, 'intercept_query' ), PHP_INT_MAX, 2 );
 	}
 
 	/**
