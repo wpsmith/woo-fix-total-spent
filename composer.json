@@ -1,0 +1,41 @@
+{
+  "name": "wpsmith/woo-fix-total-spent",
+  "description": "Fixes total spent in WooCommerce.",
+  "version": "0.0.1",
+  "type": "wordpress-plugin",
+  "license": "GPLv2+",
+  "authors": [
+    {
+      "name": "Travis Smith",
+      "email": "t@wpsmith.net"
+    }
+  ],
+  "minimum-stability": "dev",
+  "config": {
+    "preferred-install": "dist"
+  },
+  "autoload": {
+    "files": [],
+    "psr-4": {
+      "WPS\\WP\\Plugins\\WooCommerce\\FixTotalSpent\\": "includes"
+    }
+  },
+  "scripts":  {
+    "phpcs": [
+      "vendor/bin/phpcs -ps src/ tests/ --extensions=php"
+    ]
+  },
+  "require": {
+    "php": ">=7.0.0",
+    "wpsmith/singleton": "dev-master"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "*",
+    "squizlabs/php_codesniffer": "*",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "phpcompatibility/php-compatibility": "*",
+    "woocommerce/woocommerce-sniffs": "*",
+    "wp-coding-standards/wpcs": "*",
+    "automattic/vipwpcs": "*"
+  }
+}

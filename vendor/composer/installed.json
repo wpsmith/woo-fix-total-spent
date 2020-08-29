@@ -1,0 +1,49 @@
+[
+    {
+        "name": "wpsmith/singleton",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/wpsmith/Singleton.git",
+            "reference": "071244e6b7036b9b78d75625bd10fd6584287290"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/wpsmith/Singleton/zipball/071244e6b7036b9b78d75625bd10fd6584287290",
+            "reference": "071244e6b7036b9b78d75625bd10fd6584287290",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.4"
+        },
+        "time": "2020-05-16T02:33:40+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "WPS\\Core\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Travis Smith",
+                "email": "t@wpsmith.net",
+                "homepage": "https://wpsmith.net/",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP Singleton Class for doing singleton's right.",
+        "homepage": "https://github.com/wpsmith/Singleton",
+        "keywords": [
+            "dependency",
+            "plugin",
+            "singleton",
+            "wordpress"
+        ]
+    }
+]

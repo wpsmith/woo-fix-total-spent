@@ -1,0 +1,26 @@
+{
+  "name"       : "wpsmith/singleton",
+  "description": "PHP Singleton Class for doing singleton's right.",
+  "keywords"   : ["wordpress", "plugin", "dependency", "singleton"],
+  "homepage"   : "https://github.com/wpsmith/Singleton",
+  "license"    : "GPL-2.0+",
+  "authors"    : [
+    {
+      "name"    : "Travis Smith",
+      "email"   : "t@wpsmith.net",
+      "homepage": "https://wpsmith.net/",
+      "role"    : "Developer"
+    }
+  ],
+  "support"    : {
+    "issues": "https://github.com/wpsmith/Singletone/issues"
+  },
+  "require"    : {
+    "php": ">=5.2.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "WPS\\Core\\": "src/"
+    }
+  }
+}
