@@ -9,7 +9,12 @@ Short-circuits and fixes `get_total_spent()` to ensure that it does not overload
 == Description ==
 WooCommerce is a flexible, open-source eCommerce solution built on WordPress. Whether you're launching a business, taking an existing brick and mortar store online, or designing sites for clients you can get started quickly and build exactly the store you want.
 
-However, there are various parts of WooCommerce that kills your performance. One of them is the automatic, asynchronous update of getting the total spend. This plugin "fixes" that.
+However, there are various parts of WooCommerce that kills your performance. One of them is the automatic, asynchronous update of getting the total spend, which is what MailChimp for WooCommerce makes excessive and heavy use. This plugin "fixes" that.
+
+To allow the user meta queries to go through, simply add this to your `functions.php` file:
+```
+add_filter( 'woo_fix_total_spent_filter_user_metadata', '_return_empty_array' );
+```
 
 == Installation ==
 
