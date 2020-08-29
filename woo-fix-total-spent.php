@@ -7,7 +7,7 @@
  * Author URI:      https://wpsmith.net
  * Text Domain:     woo-fix-total-spent
  * Domain Path:     /languages
- * Version:         0.0.4
+ * Version:         0.0.5
  * Requires PHP:    7.2.20
  *
  * WC requires at least: 4.3.0
