@@ -2,7 +2,7 @@
   "name": "woo-fix-total-spent",
   "title": "WooCommerce Fix Total Spent",
   "homepage": "https://wpsmith.net",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "main": "Gruntfile.js",
   "author": "Travis Smith <t@wpsmith.net>",
   "license": "GPLv2",
